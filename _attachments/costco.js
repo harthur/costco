@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#map-function").val("function(doc) {\n\n  return doc;\n}");
+  $("#map-function").val("function(doc) {\n\n}");
   $('#update-button').click(costco.mapDocs);
   $('#update-container').hide();
   
@@ -31,7 +31,9 @@ var costco = {
       var rows = data.rows;
       rows.forEach(function(row) {
         var doc = row.doc;
-        var updated = editFunc(_.clone(doc));
+        var updated = _.clone(doc);
+        editFunc(updated); // mutate doc
+
         if(!updated) {
           doc._deleted = true;
           costco.toUpdate.push(doc);
