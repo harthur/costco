@@ -1,6 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 90%;
+  margin: 0;
 }
 
 .roundedCorners (@radius: 8px) {
@@ -12,6 +13,19 @@ body {
 .boxShadow {
   -moz-box-shadow: 0 1px 3px #999;
   -webkit-box-shadow: 0 1px 3px #999;
+}
+
+#header {
+  padding: 7px 5px 5px 0px;
+  text-align: vertical;
+}
+
+#costco-banner {
+  padding: 8px;
+  background-color: #919090;
+  color: white;
+  margin-right: 12px;
+  letter-spacing: 0.6px;
 }
 
 #container {
@@ -52,15 +66,30 @@ body {
   color: #222;
 }
 
+.msg(@color) {
+  padding: 10px;
+  border: 1px solid @color;
+  .roundedCorners(4px);
+}
+
+.error {
+  .msg(red);
+}
+
+.success {
+  .msg(limegreen);
+}
+
 #update-container {
   .button {
     float: left;
     margin-right: 10px;
-    background-color: #FEF4F6;
+    background-color: #F2EBEC;
+    padding: .2em .7em;
   }
 }
 
 #status {
   margin: 10px auto;
-  font-style: italic;
+  line-height: 2em;
 }
