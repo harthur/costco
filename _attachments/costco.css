@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 90%;
+  margin: 0;
+}
+.boxShadow {
+  -moz-box-shadow: 0 1px 3px #999999;
+  -webkit-box-shadow: 0 1px 3px #999999;
+}
+#header {
+  padding: 7px 5px 5px 0px;
+  text-align: vertical;
+}
+#costco-banner {
+  padding: 8px;
+  background-color: #919090;
+  color: white;
+  margin-right: 12px;
+  letter-spacing: 0.6px;
+}
+#container {
+  margin: 80px auto;
+  width: 500px;
+}
+#map-message {
+  margin-bottom: 8px;
+  color: #444444;
+}
+#examples {
+  text-decoration: none;
+  color: #888888;
+  font-size: 0.9em;
+  float: right;
+  padding: 4px;
+  border: 1px dotted #aaaaaa;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+#map-function {
+  width: 100%;
+  height: 200px;
+  font-family: monospace;
+  font-size: 1.1em;
+  margin: 8px 0;
+}
+#map-container { margin-bottom: 20px; }
+#update-button {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #cefcce;
+  margin-top: 10px;
+  border: 1px solid #aaaaaa;
+}
+.button {
+  padding: 0.5em 0.8em;
+  display: inline-block;
+  cursor: pointer;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: 0 1px 3px #999999;
+  -webkit-box-shadow: 0 1px 3px #999999;
+  color: #222222;
+}
+.error {
+  padding: 10px;
+  border: 1px solid red;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.success {
+  padding: 10px;
+  border: 1px solid limegreen;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+#update-container .button {
+  float: left;
+  margin-right: 10px;
+  background-color: #f2ebec;
+  padding: 0.2em 0.7em;
+}
+#status {
+  margin: 10px auto;
+  line-height: 2em;
+}

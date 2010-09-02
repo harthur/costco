@@ -15,6 +15,12 @@ body {
   -webkit-box-shadow: 0 1px 3px #999;
 }
 
+.msg(@color: red) {
+  padding: 10px;
+  border: 1px solid @color;
+  .roundedCorners(4px);
+}
+
 #header {
   padding: 7px 5px 5px 0px;
   text-align: vertical;
@@ -36,6 +42,16 @@ body {
 #map-message {
   margin-bottom: 8px;
   color: #444;
+}
+
+#examples {
+  text-decoration: none;
+  color: #888;
+  font-size: .9em;
+  float:right;
+  padding: 4px;
+  border: 1px dotted #aaa;
+  .roundedCorners(3px);
 }
 
 #map-function {
@@ -64,12 +80,6 @@ body {
   .roundedCorners(8px);
   .boxShadow;
   color: #222;
-}
-
-.msg(@color) {
-  padding: 10px;
-  border: 1px solid @color;
-  .roundedCorners(4px);
 }
 
 .error {
