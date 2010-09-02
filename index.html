@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>costco docs</title>
+<link rel="stylesheet/less" href="index.less" type="text/css">
+<script src="less-1.0.34.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+  <a href="http://github.com/harthur/costco"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
+  <div id="container">
+    <div id="header">
+      <div id="title">costco</div>
+    </div>
+    
+    <div id="content">
+      <div class="section">
+      <p>costco is a small UI for bulk editing CouchDB documents. It takes a map function and executes it on all the docs in the database. For convenience it's a couchapp, so you can push it to any db like so:
+        <pre class="code-example">
+git clone http://github.com/harthur/costco.git
+cd costco
+couchapp push . http://hostname:5984/mydatabase
+</pre>
+
+and visit it at http://hostname:5984/mydatabase/_design/costco/index.html
+        <p>
+        <a href="costcoscreen.png">
+          <img id="screenshot"src="costcoscreen.png"></img>
+        </a>
+        </p>
+      </p>
+      </div>
+      <div class="main-section">
+        <div class="section-header">
+          Examples
+        </div>
+        <div id="examples" class="section-content">
+          <div class="example">
+            change the <code>error</code> field of all docs
+            <pre class="code-example">
+function(doc) {
+  doc.error *= 100;
+  return doc;
+}</pre>
+          </div>
+
+          <div class="example">
+          delete all docs that have <code>year</code> less than 2010
+          <pre class="code-example">
+function(doc) {
+  if(doc.year < 2010)
+    return null;
+  return doc;
+}     
+</pre>
+          </div>
+
+          <div class="example">
+          rename <code>message</code> field in all docs
+          <pre class="code-example">
+function(doc) {
+  doc.text = doc.message;
+  delete doc.message;
+  return doc;
+}     
+</pre>
+          </div>
+
+          <div class="example">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
