@@ -29,7 +29,8 @@ $(document).ready(function() {
       });
     },
     error: function(req, status, err) {
-      alert("error getting all dbs " + err)
+      $("#status").html("<span class='error'>error fetching dbs: "
+        + err + "</span>");
     }
   });
 });
@@ -68,12 +69,12 @@ var costco = {
           failed++; // ignore if it throws on this doc
           return;
         }
-        if(!updated) {
+        if(updated === null) {
           doc._deleted = true;
           costco.toUpdate.push(doc);
           deleted++;
         }
-        else if(!(_.isEqual(updated, doc))) {
+        else if(updated && !_.isEqual(updated, doc)) {
           costco.toUpdate.push(updated);
           edited++;
         }
