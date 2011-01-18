@@ -26,7 +26,11 @@ body {
 }
 #map-message {
   margin-bottom: 8px;
-  color: #444444;
+  color: #333333;
+}
+#add-message {
+  font-style: italic;
+  color: #555555;
 }
 #examples {
   text-decoration: none;

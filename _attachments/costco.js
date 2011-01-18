@@ -2,7 +2,7 @@ $(document).ready(function() {
   $("#map-function").val("function(doc) {\n  \n  return doc;\n}");
   $("#map-function").focus().get(0).setSelectionRange(18, 18); 
   
-  $("#update-button").click(costco.mapDocs);
+  $("#update-button").click(costco.computeChanges);
   $("#update-container").hide();
   $("#status").click(function() {$("#status").empty()});
   
@@ -47,11 +47,50 @@ var costco = {
   getDb : function() {
     return $.couch.db($("#db-select").val());
   },
-
-  mapDocs : function() {
+  
+  createDb : function() {
+    var dbname = $("#new-db-name").val();
+    $.couch.db(dbname).create({
+      success: function() {
+        $("<option></option>").val(dbname).html(dbname).appendTo("#existing-dbs")
+        $("#db-select").val(dbname);      
+        $("#create-box").hide();
+      },
+      error: function(req, status, err) {
+        $("#status").html("<span class='error'>could not create db: "
+           + err + "</span>");
+      }
+    });
+  },
+  
+  computeChanges : function() {
     $("#status").html("<span>Computing changes...</span>");
 
-    var funcString = $("#map-function").val();
+    var text = $("#map-function").val();
+    var docs;
+    try {
+      docs = JSON.parse(text);
+    }
+    catch(e) {
+      try {
+        docs = JSON.parse("[" + text + "]");
+      }   
+      catch(e) {
+        // not JSON, must be an edit function
+        return costco.mapDocs(text);
+      }
+    }  
+    if(!docs.length)
+      docs = [docs];
+    
+    costco.toUpdate = docs;
+    
+    $("#status").html("<span class='warning'>About to add " + docs.length
+            + " docs to " + costco.getDb().name  + "</span>");
+    $("#update-container").show();
+  },
+
+  mapDocs : function(funcString) {
     try {
       eval("var editFunc = " + funcString);
     } catch(e) {
