@@ -11,7 +11,17 @@
     <span id="costco-banner">
       costco bulk edit
     </span>
-    db: <select id="db-select"></select>
+    db: <select id="db-select">
+      <optgroup id="existing-dbs">
+	  </optgroup>
+	  <optgroup id="new-db">
+		<option id="new-db-option" value="new-db">*new*</option>
+	  </optgroup>
+    </select>
+    <span id="create-box">
+	 name:<input id="new-db-name"></input>
+	 <input id="create-db" type="button" value="create"/>
+	</span>
   </div>
   <div id="container">
     <div id="map-container">

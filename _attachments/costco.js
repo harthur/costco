@@ -19,10 +19,16 @@ $(document).ready(function() {
     $('#status').empty();
   });
 
+  $("#new-db-option").click(function() {
+    $("#create-box").show();
+  });
+  $("#create-box").hide();
+  $("#create-db").click(costco.createDb);
+
   $.couch.allDbs({
     success: function(dbs) {
       dbs.forEach(function(db){
-        $("<option></option>").val(db).html(db).appendTo("#db-select");
+        $("<option></option>").val(db).html(db).appendTo("#existing-dbs");
       });
       $.couch.app(function(app) {
         $('#db-select').val(app.db.name);
