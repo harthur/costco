@@ -38,7 +38,7 @@ and visit it at http://hostname:5984/mydatabase/_design/costco/index.html
         <div id="examples" class="section-content">
 	      <div class="sub-section">
 		    <div class="header">
-			  editing and deleting docs
+			  editing docs
 			</div>
 	          <div class="example">
 	            change the <code>error</code> field of all docs
@@ -47,16 +47,6 @@ function(doc) {
   doc.error *= 100;
   return doc;
 }</pre>
-	          </div>
-
-	          <div class="example">
-	          delete all docs that have <code>year</code> less than 2010
-	          <pre class="code-example">
-function(doc) {
-  if(doc.year < 2010)
-    return null;
-}     
-	</pre>
 	          </div>
 
 	          <div class="example">
@@ -69,6 +59,33 @@ function(doc) {
 }     
 	</pre>
 	          </div>
+                </div>
+	        <div class="sub-section">
+		      <div class="header">
+			   deleting docs
+			  </div>	
+
+	          <div class="example">
+	          delete all docs that have <code>year</code> less than 2010
+	          <pre class="code-example">
+function(doc) {
+  if(doc.year < 2010)
+    return null;
+}     
+	</pre>
+	          </div>
+
+                 <div class="example">
+                   cut docs in db down to the first thousand
+                   <pre class="code-example">
+function(doc) {
+  i = i + 1 || 1;
+
+  if(i > 1000)
+    return null;
+}
+                   </pre>
+                 </div>
 	        </div>
 	        <div class="sub-section">
 		      <div class="header">
