@@ -119,7 +119,7 @@ var costco = {
           costco.toUpdate.push(doc);
           deleted++;
         }
-        else if(updated && !_.isEqual(updated, doc)) {
+        else if(updated) {
           costco.toUpdate.push(updated);
           edited++;
         }
